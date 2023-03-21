@@ -1,0 +1,49 @@
+{
+  "name": "@chriton/lnr-ethers-react",
+  "version": "1.0.0",
+  "description": "lnr-ethers for react",
+  "main": "dist/lib/index.js",
+
+  "types": "dist/lib/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "format": "prettier --write src/**/*",
+    "clean": "rm -rf dist/lib",
+    "build": "npm run clean && npm run format && tsc",
+    "test-publish": "npm run build && npm publish --dry-run",
+    "publish-on-npm": "npm run build && npm publish --access public"
+  },
+  "type": "module",
+  "keywords": [
+    "LNR",
+    "linagee",
+    "ethers"
+  ],
+  "author": "Chriton",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chriton/lnr-ethers-react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Chriton/lnr-ethers-react/issues"
+  },
+  "homepage": "https://github.com/Chriton/lnr-ethers-react#readme",
+  "devDependencies": {
+    "@types/node": "^18.15.3",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "auto-changelog": "^2.4.0",
+    "prettier": "^2.8.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rollup": "^3.19.1",
+    "typescript": "^5.0.2"
+  },
+  "peerDependencies": {
+    "ethers": "^5.7.2",
+    "@adraffy/ens-normalize": "^1.9.0"
+  }
+}
