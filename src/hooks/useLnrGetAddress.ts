@@ -20,7 +20,7 @@ export const useLnrGetAddress = (name: string): { address: string | null } => {
 
     useEffect(() => {
         lnr.getAddress(name).then(setAddress).catch(console.error);
-    }, [address]);
+    }, [name]);
 
     return { address };
 };
