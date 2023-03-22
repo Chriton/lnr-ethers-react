@@ -14,7 +14,6 @@
     "test-publish": "npm run build && npm publish --dry-run",
     "publish-on-npm": "npm run build && npm publish --access public"
   },
-  "type": "module",
   "keywords": [
     "LNR",
     "linagee",
