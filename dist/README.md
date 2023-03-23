@@ -1,6 +1,9 @@
 
 # Lnr Ethers React package
 
+# Requirements
+- React >= 18.0.0
+
 ## Installation
 
 ```bash

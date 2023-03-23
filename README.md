@@ -10,6 +10,26 @@
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
+## Requirements
+
+- React >= 18.0.0
+
+## Updating/publishing the [npm](https://www.npmjs.com/) package
+
+```bash
+# Update the version in package.json (patch/minor/major):
+npm version patch
+npm version minor
+npm version major
+
+# Build the package
+npm run build
+# Go into /dist and publish the package
+cd dist
+npm login
+npm publish --access public
+```
+
 ## Installation
 
 ```bash
