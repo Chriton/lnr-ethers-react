@@ -7,10 +7,10 @@
 ## Installation
 
 ```bash
-# if you use npm
+# with npm
 npm install @chriton/lnr-ethers-react
 
-# or is you use yarn
+# with yarn
 yarn add @chriton/lnr-ethers-react
 ```
 
