@@ -1,26 +1,46 @@
 import { useState, useContext, useEffect } from "react";
-import LNR from "../LNR";
+import LNR from "../lnr/LNR";
 import { LnrContext } from "../provider/LnrConfigProvider";
 
 /**
  * Gets the address associated with a name
  *
- * Example:
+ * Examples:
  * ```typescript
  * const { address } = useLnrGetAddress("0xhal.og");
+ * const { address, error, hasError } = useLnrGetAddress("0xhal.og");
  * ```
  *
  * @param name The name to resolve to an address
  * @returns The address associated with the name
  */
-export const useLnrGetAddress = (name: string): { address: string | null } => {
-    const [address, setAddress] = useState(null);
+export function useLnrGetAddress(name: string): {
+    address: string | null;
+    error: string | null;
+    hasError: boolean;
+} {
+    const [address, setAddress] = useState<string | null>(null);
+    const [error, setError] = useState<string | null>(null);
+    const [hasError, setHasError] = useState(false);
     const ctx = useContext(LnrContext);
     const lnr = new LNR(ctx.provider);
 
+    async function getAddress() {
+        try {
+            const address = await lnr.getAddress(name);
+            setAddress(address);
+            setError(null);
+            setHasError(false);
+        } catch (e) {
+            setAddress(null);
+            setError(e.reason);
+            setHasError(true);
+        }
+    }
+
     useEffect(() => {
-        lnr.getAddress(name).then(setAddress).catch(console.error);
+        getAddress();
     }, [name]);
 
-    return { address };
-};
+    return { address, error, hasError };
+}

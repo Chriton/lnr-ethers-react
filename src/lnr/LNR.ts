@@ -1,5 +1,5 @@
 import { ethers, Contract } from "ethers";
-import { Constants } from "./Constants";
+import { Constants } from "../utils/Constants";
 
 /**
  * {@link LNR} class provides access to the Linagee ecosystem of contracts:
@@ -72,9 +72,10 @@ export default class LNR {
      */
     public async getPrimaryName(address: string): Promise<string> {
         const contract = this.getContract();
-        const rawName = await contract.primary(this.getAddressFromStr(address));
+        const formattedAddress = this.getAddressFromStr(address)
+        const bytesName = await contract.primary(formattedAddress);
 
-        return ethers.utils.parseBytes32String(rawName);
+        return ethers.utils.toUtf8String(ethers.utils.arrayify(bytesName).filter(n => n != 0));
     }
 
     /**
