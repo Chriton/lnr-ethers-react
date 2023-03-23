@@ -1,6 +1,6 @@
 {
   "name": "@chriton/lnr-ethers-react",
-  "version": "1.0.0",
+  "version": "1.0.21",
   "description": "lnr-ethers for react",
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
@@ -25,7 +25,8 @@
   },
   "homepage": "https://github.com/Chriton/lnr-ethers-react#readme",
   "peerDependencies": {
+    "@adraffy/ens-normalize": "^1.9.0",
     "ethers": "^5.7.2",
-    "@adraffy/ens-normalize": "^1.9.0"
+    "react": "^18.0.0"
   }
 }
