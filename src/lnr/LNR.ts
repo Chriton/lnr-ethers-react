@@ -72,10 +72,12 @@ export default class LNR {
      */
     public async getPrimaryName(address: string): Promise<string> {
         const contract = this.getContract();
-        const formattedAddress = this.getAddressFromStr(address)
+        const formattedAddress = this.getAddressFromStr(address);
         const bytesName = await contract.primary(formattedAddress);
 
-        return ethers.utils.toUtf8String(ethers.utils.arrayify(bytesName).filter(n => n != 0));
+        return ethers.utils.toUtf8String(
+            ethers.utils.arrayify(bytesName).filter((n) => n != 0)
+        );
     }
 
     /**
