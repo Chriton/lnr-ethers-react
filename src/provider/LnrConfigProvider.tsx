@@ -11,6 +11,7 @@ export const LnrContext = createContext<LnrConfig>({
     provider: ethers.providers.getDefaultProvider(1)
 });
 
+// prettier-ignore
 export const LnrConfigProvider: FC<lnrProviderProps> = (props) => {
     return (
         <LnrContext.Provider value={props.config}>

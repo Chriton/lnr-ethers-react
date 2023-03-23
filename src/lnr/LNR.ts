@@ -11,13 +11,12 @@ import { Constants } from "../utils/Constants";
  * @class
  */
 export default class LNR {
-
     /**
      * The {@link ethers.providers.BaseProvider} or {@link ethers.Signer} to use for the contract
      *
      * @private readonly
      */
-    private readonly providerOrSigner: ethers.providers.BaseProvider | ethers.Signer
+    private readonly providerOrSigner: ethers.providers.BaseProvider | ethers.Signer;
 
     /**
      * Creates a new {@link LNR} instance
@@ -65,8 +64,6 @@ export default class LNR {
      * const name = await lnr.getName("0x1234567890123456789012345678901234567890");
      * ```
      *
-     * TODO - fix parseBytes32String (see lnr-ethers)
-     *
      * @param address The address to get the primary name of
      * @returns The primary name set for the specified address
      */
@@ -75,9 +72,7 @@ export default class LNR {
         const formattedAddress = this.getAddressFromStr(address);
         const bytesName = await contract.primary(formattedAddress);
 
-        return ethers.utils.toUtf8String(
-            ethers.utils.arrayify(bytesName).filter((n) => n != 0)
-        );
+        return ethers.utils.toUtf8String(ethers.utils.arrayify(bytesName).filter((n) => n != 0));
     }
 
     /**
@@ -85,7 +80,7 @@ export default class LNR {
      *
      * Example:
      * ```typescript
-     * const controller = await lnr.getController("0xhal.og");
+     * const controller = await lnr.getController("0xhal");
      * ```
      *
      * @param name The name to get the controller of
