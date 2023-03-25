@@ -17,15 +17,18 @@
 ## Updating/publishing the [npm](https://www.npmjs.com/) package
 
 ```bash
-# Update the version in package.json (patch/minor/major):
+# Build the package. In the root folder use:
+npm run build
+
+# Go into /dist folder and update the version in package.json (patch/minor/major). You can do it manually or use one of the following commands:
+# 1.0.0 -> 1.0.1
 npm version patch
+# 1.0.0 -> 1.1.0
 npm version minor
+# 1.0.0 -> 2.0.0
 npm version major
 
-# Build the package
-npm run build
-# Go into /dist and publish the package
-cd dist
+# In /dist folder and use the following to publish the package
 npm login
 npm publish --access public
 ```
