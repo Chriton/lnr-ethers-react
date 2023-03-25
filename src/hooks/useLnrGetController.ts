@@ -8,7 +8,7 @@ import { LnrContext } from "../provider/LnrConfigProvider";
  * Examples:
  * ```typescript
  * const { controller } = useLnrGetController("0xHal");
- * const { controller, error, hasError } = useLnrGetController("0xHal");
+ * const { controller, error, hasError, loading } = useLnrGetController("0xHal");
  * ```
  *
  * @param name The name to get the controller of
@@ -18,15 +18,18 @@ export function useLnrGetController(name: string): {
     controller: string | null;
     error: string | null;
     hasError: boolean;
+    loading: boolean;
 } {
     const [controller, setController] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [hasError, setHasError] = useState(false);
+    const [loading, setLoading] = useState(false);
     const ctx = useContext(LnrContext);
     const lnr = new LNR(ctx.provider);
 
     async function getController() {
         try {
+            setLoading(true);
             const controller = await lnr.getController(name);
             setController(controller);
             setError(null);
@@ -35,6 +38,8 @@ export function useLnrGetController(name: string): {
             setController(null);
             setError(e.reason);
             setHasError(true);
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -42,5 +47,5 @@ export function useLnrGetController(name: string): {
         getController();
     }, [name]);
 
-    return { controller, error, hasError };
+    return { controller, error, hasError, loading };
 }

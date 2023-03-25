@@ -8,7 +8,7 @@ import { LnrContext } from "../provider/LnrConfigProvider";
  * Examples:
  * ```typescript
  * const { address } = useLnrGetAddress("0xhal.og");
- * const { address, error, hasError } = useLnrGetAddress("0xhal.og");
+ * const { address, error, hasError, loading } = useLnrGetAddress("0xhal.og");
  * ```
  *
  * @param name The name to resolve to an address
@@ -18,15 +18,18 @@ export function useLnrGetAddress(name: string): {
     address: string | null;
     error: string | null;
     hasError: boolean;
+    loading: boolean;
 } {
     const [address, setAddress] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [hasError, setHasError] = useState(false);
+    const [loading, setLoading] = useState(false);
     const ctx = useContext(LnrContext);
     const lnr = new LNR(ctx.provider);
 
     async function getAddress() {
         try {
+            setLoading(true);
             const address = await lnr.getAddress(name);
             setAddress(address);
             setError(null);
@@ -35,6 +38,8 @@ export function useLnrGetAddress(name: string): {
             setAddress(null);
             setError(e.reason);
             setHasError(true);
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -42,5 +47,5 @@ export function useLnrGetAddress(name: string): {
         getAddress();
     }, [name]);
 
-    return { address, error, hasError };
+    return { address, error, hasError, loading };
 }
