@@ -1,6 +1,6 @@
 {
   "name": "@chriton/lnr-ethers-react",
-  "version": "1.0.29",
+  "version": "1.0.30",
   "description": "lnr-ethers for react",
   "author": "Chriton",
   "main": "./lib/index.js",
