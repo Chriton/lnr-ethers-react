@@ -1,4 +1,14 @@
 
+![npm](https://img.shields.io/npm/v/@chriton/lnr-ethers-react)
+![npm bundle size](https://img.shields.io/bundlephobia/min/@chriton/lnr-ethers-react)
+![npm](https://img.shields.io/npm/dw/@chriton/lnr-ethers-react)
+
+![GitHub](https://img.shields.io/github/license/Chriton/lnr-ethers-react)
+![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/Chriton/lnr-ethers-react)
+
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
+
 # Lnr Ethers React package
 
 # Requirements
@@ -21,6 +31,8 @@ TODO
 ```
 
 ## Usage
+
+Documentation can be found [here](https://docs.linagee.app/docs/lnr-ethers-react/getting-started)
 
 ```typescript
 TODO

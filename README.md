@@ -51,6 +51,8 @@ TODO
 
 ## Usage
 
+Documentation can be found [here](https://docs.linagee.app/docs/lnr-ethers-react/getting-started)
+
 ```typescript
 TODO
 ```
