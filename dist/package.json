@@ -1,9 +1,9 @@
 {
   "name": "@chriton/lnr-ethers-react",
-  "version": "1.0.24",
+  "version": "1.0.28",
   "description": "lnr-ethers for react",
-  "main": "dist/lib/index.js",
-  "types": "dist/lib/index.d.ts",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "files": [
     "/lib",
     "package.json",
