@@ -1,20 +1,21 @@
 {
   "name": "@chriton/lnr-ethers-react",
-  "version": "1.0.28",
+  "version": "1.0.29",
   "description": "lnr-ethers for react",
+  "author": "Chriton",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "files": [
     "/lib",
     "package.json",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "keywords": [
     "LNR",
     "linagee",
     "ethers"
   ],
-  "author": "Chriton",
   "license": "MIT",
   "repository": {
     "type": "git",

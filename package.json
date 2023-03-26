@@ -2,6 +2,7 @@
   "name": "@chriton/lnr-ethers-react",
   "version": "1.0.0",
   "description": "lnr-ethers for react",
+  "author": "Chriton",
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
   "files": [
@@ -19,7 +20,6 @@
     "linagee",
     "ethers"
   ],
-  "author": "Chriton",
   "license": "MIT",
   "repository": {
     "type": "git",
