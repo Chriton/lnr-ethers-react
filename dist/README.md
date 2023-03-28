@@ -17,6 +17,9 @@
 
 ## Installation
 
+Full documentation can be found here [docs.linagee.app](https://docs.linagee.app/docs/lnr-ethers-react/getting-started)
+
+
 ```bash
 # with npm
 npm install @chriton/lnr-ethers-react
@@ -62,8 +65,6 @@ You can set any provider you want, but we recommend using Alchemy.
 ## Usage
 
 Use the hooks in your components to get the data you need.
-
-Full documentation can be found here [docs.linagee.app](https://docs.linagee.app/docs/lnr-ethers-react/getting-started)
 
 Example:
 

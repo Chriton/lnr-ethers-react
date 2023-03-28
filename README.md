@@ -10,34 +10,55 @@
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
+This repository represents the source code for the [lnr-ethers-react npm](https://www.npmjs.com/package/@chriton/lnr-ethers-react) package.
+
 ## Requirements
 
-- React >= 18.0.0
+- To use the [lnr-ethers-react npm](https://www.npmjs.com/package/@chriton/lnr-ethers-react) package in your React project make sure you have at least React >= 18.0.0
 
 ---
 
 ## Updating/publishing the [npm](https://www.npmjs.com/) package
 
-```bash
-# Build the package. In the root folder use:
-npm run build
+1. Make your desired changes in /src folder
+2. Build the package that will be published on npm by running the following command in the root folder:
+    ```bash
+    npm run build
+    ```
+    This command will generate all the necessary files required to be published in the /dist folder (generated from the /src folder).
 
-# Go into /dist folder and update the version in package.json (patch/minor/major). You can do it manually or use one of the following commands:
-# 1.0.0 -> 1.0.1
-npm version patch
-# 1.0.0 -> 1.1.0
-npm version minor
-# 1.0.0 -> 2.0.0
-npm version major
+3. Update the npm package version in /dist/package.json file. You can do it manually or use one of the following commands:
 
-# In /dist folder and use the following to publish the package
-npm login
-npm publish --access public
-```
+    ```bash
+    # Go into /dist folder and use one of the following commands to update the version
+    # 1.0.0 -> 1.0.1
+    npm version patch
+    # 1.0.0 -> 1.1.0
+    npm version minor
+    # 1.0.0 -> 2.0.0
+    npm version major
+    ```
+    We update /dist/package.json file because this is the file that will be published on npm.
+
+4. Publish the package on npm
+    ```bash
+        # Go to the /dist folder and use the following to publish the package
+        npm login
+        npm publish --access public
+    ```
+    Note that the package will be published with the version specified in /dist/package.json file and not the one in /src/package.json file.
+    The package will be published in the location specified in /dist/package.json -> name field.
+
+5. Push the changes to the repository
+6. Optionally you can create a release on GitHub with the same version as the one you published on npm
 
 ---
 
-## Installation
+## Package Installation & Setup in your React project
+
+Full documentation can be found here [docs.linagee.app](https://docs.linagee.app/docs/lnr-ethers-react/getting-started)
+
+### Installation
 
 ```bash
 # with npm
@@ -49,7 +70,7 @@ yarn add @chriton/lnr-ethers-react
 
 ---
 
-## Setup
+### Setup
 
 #### Set LnrConfigProvider as a wrapper for your app
 
@@ -84,8 +105,6 @@ You can set any provider you want, but we recommend using Alchemy.
 ## Usage
 
 Use the hooks in your components to get the data you need.
-
-Full documentation can be found here [docs.linagee.app](https://docs.linagee.app/docs/lnr-ethers-react/getting-started)
 
 Example:
 
