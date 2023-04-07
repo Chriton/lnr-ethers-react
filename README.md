@@ -38,6 +38,8 @@ This repository represents the source code for the [lnr-ethers-react npm](https:
     # 1.0.0 -> 2.0.0
     npm version major
     ```
+   
+   You can also add a pre-release version by adding the following after the version number: -alpha.0, -beta.0, -rc.0, etc.
     We update /dist/package.json file because this is the file that will be published on npm.
 
 4. Publish the package on npm
@@ -45,6 +47,11 @@ This repository represents the source code for the [lnr-ethers-react npm](https:
         # Go to the /dist folder and use the following to publish the package
         npm login
         npm publish --access public
+    ```
+   
+    If you want to just dry run the publish command without actually publishing the package, use the following command:
+    ```bash
+        npm publish --dry-run
     ```
     Note that the package will be published with the version specified in /dist/package.json file and not the one in /src/package.json file.
     The package will be published in the location specified in /dist/package.json -> name field.
