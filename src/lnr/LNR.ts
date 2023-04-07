@@ -1,5 +1,7 @@
+// TODO - import from ethers only what is needed to reduce bundle size
 import { ethers, Contract } from "ethers";
 import { Constants } from "../utils/Constants";
+import { lnr } from "../index";
 
 /**
  * {@link LNR} class provides access to the Linagee ecosystem of contracts:
@@ -72,11 +74,14 @@ export default class LNR {
         const formattedAddress = this.getAddressFromStr(address);
         const bytesName = await contract.primary(formattedAddress);
 
-        return ethers.utils.toUtf8String(ethers.utils.arrayify(bytesName).filter((n) => n != 0));
+        return lnr.utils.bytes32ToString(bytesName);
+        //return ethers.utils.toUtf8String(ethers.utils.arrayify(bytesName).filter((n) => n != 0));
     }
 
     /**
      * Gets the controller address set for a name
+     *
+     * TODO - fix formatBytes32String (see lnr-ethers)
      *
      * Example:
      * ```typescript
@@ -88,6 +93,7 @@ export default class LNR {
      */
     public async getController(name: string): Promise<string> {
         const contract = this.getContract();
+        // TODO - replace with bytes32ToString or stringToBytes32
         const parsedName = ethers.utils.formatBytes32String(name);
 
         return await contract.controller(parsedName);
@@ -121,6 +127,7 @@ export default class LNR {
      */
     public async verifyIsNameOwner(name: string, address: string): Promise<boolean> {
         const contract = this.getContract();
+        // TODO - replace with bytes32ToString or stringToBytes32
         const parsedName = ethers.utils.formatBytes32String(name);
         const parsedAddress = ethers.utils.getAddress(address);
 
