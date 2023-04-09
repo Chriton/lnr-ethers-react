@@ -1,10 +1,10 @@
 import { ethers } from "ethers";
-import { createContext, FC, ReactElement } from "react";
+import { createContext, FC, ReactNode } from "react";
 import { LnrConfig } from "./LnrConfig";
 
 type lnrProviderProps = {
     config: LnrConfig;
-    children: ReactElement;
+    children: ReactNode;
 };
 
 export const LnrContext = createContext<LnrConfig>({
