@@ -1,6 +1,6 @@
 {
-  "name": "@chriton/lnr-ethers-react",
-  "version": "1.1.0",
+  "name": "@linagee/lnr-ethers-react",
+  "version": "1.1.1",
   "description": "lnr-ethers for react",
   "author": "Chriton",
   "main": "./lib/index.js",
@@ -19,12 +19,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Chriton/lnr-ethers-react.git"
+    "url": "git+https://github.com/Linagee-Name-Registrar/lnr-ethers-react.git"
   },
   "bugs": {
-    "url": "https://github.com/Chriton/lnr-ethers-react/issues"
+    "url": "https://github.com/Linagee-Name-Registrar/lnr-ethers-react/issues"
   },
-  "homepage": "https://github.com/Chriton/lnr-ethers-react#readme",
+  "homepage": "https://github.com/Linagee-Name-Registrar/lnr-ethers-react#readme",
   "peerDependencies": {
     "@adraffy/ens-normalize": "^1.9.0",
     "ethers": "^5.7.2",
