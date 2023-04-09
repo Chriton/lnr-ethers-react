@@ -1,5 +1,5 @@
 
-# Lnr Ethers React package
+# Lnr Ethers React
 
 ![npm](https://img.shields.io/npm/v/@chriton/lnr-ethers-react)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/@chriton/lnr-ethers-react)
