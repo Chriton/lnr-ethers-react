@@ -4,7 +4,14 @@ import {ens_normalize} from "@adraffy/ens-normalize";
 
 
 /**
- * Converts a bytes32 value to a string
+ * Converts a bytes32 value, given as a hexadecimal string,
+ * into a readable string representation
+ *
+ * Example:
+ * ```
+ * bytes32ToString("0x307868616c000000000000000000000000000000000000000000000000000000")
+ * will return "0xhal"
+ * ```
  *
  * @param {string} _hex A hexadecimal string representation of a bytes32 value
  * @returns {string} The string representation of the bytes32 value
@@ -14,7 +21,13 @@ export function bytes32ToString(_hex: string): string {
 }
 
 /**
- * Converts a string to a bytes32 value
+ * Converts a string to a bytes32 value represented as a hexadecimal string
+ *
+ * Example:
+ * ```
+ * stringToBytes32("0xhal")
+ * will return "0x307868616c000000000000000000000000000000000000000000000000000000"
+ * ```
  *
  * @param {string} _string The string to convert
  * @returns {string} The bytes32 value
@@ -31,7 +44,14 @@ export function stringToBytes32(_string: string): string {
 }
 
 /**
- * Converts a domain (Ex:test.og) into a bytes32 value (0x..)
+ * Converts a domain string, such as "0xhal.og", into
+ * a bytes32 value represented as a hexadecimal string
+ *
+ * Example:
+ * ```
+ * domainToBytes32("0xhal.og")
+ * will return "0x307868616c000000000000000000000000000000000000000000000000000000"
+ * ```
  *
  * @param _name The domain string
  * @returns The bytes32 value
@@ -48,7 +68,15 @@ export function domainToBytes32(_name: string): string {
 }
 
 /**
- * Converts a bytes32 to a domain
+ *
+ * Converts a bytes32 value, given as a hexadecimal string, into a domain
+ * string representation and also appending the ".og" top-level domain
+ *
+ * Example:
+ * ```
+ * bytes32ToDomain("0x307868616c000000000000000000000000000000000000000000000000000000")
+ * will return "0xhal.og"
+ * ```
  *
  * @param {string} _name The Bytes32 value to convert
  * @returns {string} Domain
@@ -58,7 +86,14 @@ export function bytes32ToDomain(_name: string): string {
 }
 
 /**
- * Uses adraffy/ens-normalize to normalize a string
+ * Uses [@adraffy/ens-normalize](https://www.npmjs.com/package/@adraffy/ens-normalize)
+ * package to normalize a domain string
+ *
+ * Example:
+ * ```
+ * normalize("0xHal")
+ * will return "0xhal"
+ * ```
  *
  * @param _name The domain to normalize
  * @returns {string} The normalized domain
@@ -68,8 +103,14 @@ export function normalize(_name: string): string {
 }
 
 /**
- * Takes a domain, normalizes it, checks that it is not a subdomain, is an og
- * domain, and isn't too long
+ * Takes a domain string, normalizes it, checks that it is not a
+ * subdomain, is an "og" domain, and verifies that isn't too long
+ *
+ * Example:
+ * ```
+ * isValidDomain("0xhal.og")
+ * will return [true, "0xhal.og"]
+ * ```
  *
  * @param _name The domain to check
  * @returns an array with the first element being a boolean indicating if the domain is valid,
@@ -93,7 +134,13 @@ export function isValidDomain(_name: string): [boolean, string] {
 }
 
 /**
- * Checks if a domain is normalized
+ * Checks if a domain string is normalized
+ *
+ * Example:
+ * ```
+ * isNormalizedName("0xhal.og")
+ * will return true
+ * ```
  *
  * @param _name The domain to check
  * @returns {boolean} True if the domain is normalized, false otherwise
@@ -104,7 +151,12 @@ export function isNormalizedName(_name: string): boolean {
 }
 
 /**
- * Checks if a domain is normalized
+ * Checks if a bytes32 value representing a domain is normalized
+ *
+ * Example:
+ * ```
+ * isNormalizedBytes("0x307868616c000000000000000000000000000000000000000000000000000000")
+ * will return true
  *
  * @param _bytes The bytes32 value of the domain to check
  * @returns {boolean} True if the domain is normalized, false otherwise
