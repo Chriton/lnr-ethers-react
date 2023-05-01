@@ -8,7 +8,7 @@ type lnrProviderProps = {
 };
 
 export const LnrContext = createContext<LnrConfig>({
-    provider: ethers.providers.getDefaultProvider(1)
+    provider: ethers.getDefaultProvider(1)
 });
 
 // prettier-ignore

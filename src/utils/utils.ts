@@ -17,7 +17,7 @@ import {ens_normalize} from "@adraffy/ens-normalize";
  * @returns {string} The string representation of the bytes32 value
  */
 export function bytes32ToString(_hex: string): string {
-    return ethers.utils.toUtf8String(ethers.utils.arrayify(_hex).filter((n) => n != 0));
+    return ethers.toUtf8String(ethers.getBytes(_hex).filter((n) => n != 0));
 }
 
 /**
@@ -33,7 +33,7 @@ export function bytes32ToString(_hex: string): string {
  * @returns {string} The bytes32 value
  */
 export function stringToBytes32(_string: string): string {
-    let result = ethers.utils.hexlify(ethers.utils.toUtf8Bytes(_string));
+    let result = ethers.hexlify(ethers.toUtf8Bytes(_string));
     while (result.length < 66) {
         result += "0";
     }

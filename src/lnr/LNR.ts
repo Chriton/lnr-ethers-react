@@ -14,20 +14,20 @@ import { lnr } from "../index";
  */
 export default class LNR {
     /**
-     * The {@link ethers.providers.BaseProvider} or {@link ethers.Signer} to use for the contract
+     * The {@link ethers.AbstractProvider} or {@link ethers.Signer} to use for the contract
      *
      * @private readonly
      */
-    private readonly providerOrSigner: ethers.providers.BaseProvider | ethers.Signer;
+    private readonly providerOrSigner: ethers.AbstractProvider | ethers.Signer;
 
     /**
      * Creates a new {@link LNR} instance
      *
      * @constructor
-     * @param provider The {@link ethers.providers.BaseProvider} or {@link ethers.Signer} to use
+     * @param provider The {@link ethers.AbstractProvider} or {@link ethers.Signer} to use
      * @returns A new {@link LNR} instance
      */
-    constructor(provider: ethers.providers.BaseProvider | ethers.Signer) {
+    constructor(provider: ethers.AbstractProvider | ethers.Signer) {
         this.providerOrSigner = provider;
     }
 
@@ -55,7 +55,7 @@ export default class LNR {
      * @returns The converted address
      */
     private getAddressFromStr(address: string): string {
-        return ethers.utils.getAddress(address);
+        return ethers.getAddress(address);
     }
 
     /**
@@ -75,13 +75,12 @@ export default class LNR {
         const bytesName = await contract.primary(formattedAddress);
 
         return lnr.utils.bytes32ToString(bytesName);
-        //return ethers.utils.toUtf8String(ethers.utils.arrayify(bytesName).filter((n) => n != 0));
     }
 
     /**
      * Gets the controller address set for a name
      *
-     * TODO - fix formatBytes32String (see lnr-ethers)
+     * TODO - fix encodeBytes32String (see lnr-ethers)
      *
      * Example:
      * ```typescript
@@ -94,7 +93,7 @@ export default class LNR {
     public async getController(name: string): Promise<string> {
         const contract = this.getContract();
         // TODO - replace with bytes32ToString or stringToBytes32
-        const parsedName = ethers.utils.formatBytes32String(name);
+        const parsedName = ethers.encodeBytes32String(name);
 
         return await contract.controller(parsedName);
     }
@@ -119,7 +118,7 @@ export default class LNR {
     /**
      * Verifies that an address is the owner of a name
      *
-     * TODO - fix formatBytes32String (see lnr-ethers)
+     * TODO - fix encodeBytes32String (see lnr-ethers)
      *
      * @param name The name to verify
      * @param address The address to verify
@@ -128,8 +127,8 @@ export default class LNR {
     public async verifyIsNameOwner(name: string, address: string): Promise<boolean> {
         const contract = this.getContract();
         // TODO - replace with bytes32ToString or stringToBytes32
-        const parsedName = ethers.utils.formatBytes32String(name);
-        const parsedAddress = ethers.utils.getAddress(address);
+        const parsedName = ethers.encodeBytes32String(name);
+        const parsedAddress = ethers.getAddress(address);
 
         return await contract.verifyIsNameOwner(parsedName, parsedAddress);
     }

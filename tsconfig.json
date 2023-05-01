@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "module": "ES6",
-    "target": "ES5",
+    "module": "ES2020",
+    "target": "ES2020",
     "lib": ["ES2020", "DOM"],
     "sourceMap": true,
     "outDir": "./dist/lib",
@@ -11,6 +11,8 @@
     "jsx": "react-jsx",
     "resolveJsonModule": true,
     "moduleResolution": "node",
+    // "skipLibCheck": true,
+    // "esModuleInterop": true,
   },
   "include": [
     "src/**/*"
