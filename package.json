@@ -1,6 +1,6 @@
 {
   "name": "@linagee/lnr-ethers-react",
-  "version": "1.0.0",
+  "version": "1.2.0-rc.0",
   "description": "lnr-ethers for react",
   "author": "Chriton",
   "main": "dist/lib/index.js",
@@ -12,8 +12,8 @@
     "format": "prettier --write src/**/*",
     "clean": "rm -rf dist/lib",
     "build": "npm run clean && npm run format && tsc",
-    "test-publish": "npm run build && npm publish --dry-run",
-    "publish-on-npm": "npm run build && npm publish --access public"
+    "test-publish": "npm run build && cd dist && npm publish --dry-run",
+    "publish-on-npm": "npm run build && cd dist && npm publish --access public"
   },
   "keywords": [
     "LNR",
