@@ -133,4 +133,63 @@ export default class LNR {
 
         return await contract.verifyIsNameOwner(parsedName, parsedAddress);
     }
+
+    /**
+     * Gets the text record for a name
+     *
+     * @param name The name to get the text record of
+     * @param key The key of the text record to get
+     * @returns The text record for the specified name and key
+     */
+    public async getTextRecord(name: string, key: string): Promise<string> {
+        const contract = this.getContract();
+        // TODO - replace with bytes32ToString or stringToBytes32
+        const parsedName = ethers.utils.formatBytes32String(name);
+
+        return await contract.getTextRecord(parsedName, key);
+    }
+
+    /**
+     * Sets the text record for a name
+     *
+     * @param name The name to set the text record of
+     * @param key The key of the text record to set
+     * @param value The value of the text record to set
+     * @returns A promise that resolves when the transaction is complete
+     */
+    public async setTextRecord(name: string, key: string, value: string): Promise<void> {
+        const contract = this.getContract();
+        // TODO - replace with bytes32ToString or stringToBytes32
+        const parsedName = ethers.utils.formatBytes32String(name);
+
+        return await contract.setTextRecord(parsedName, key, value);
+    }
+
+    /**
+     * Unsets the text record for a name
+     *
+     * @param name The name to unset the text record of
+     * @param key The key of the text record to unset
+     * @returns A promise that resolves when the transaction is complete
+     */
+    public async unsetTextRecord(name: string, key: string): Promise<void> {
+        const contract = this.getContract();
+        // TODO - replace with bytes32ToString or stringToBytes32
+        const parsedName = ethers.utils.formatBytes32String(name);
+
+        return await contract.unsetTextRecord(parsedName, key);
+    }
+
+    /**
+     * Gets all text records for a name
+     *
+     * @param name The name to get the text records of
+     */
+    public async getAllTextRecords(name: string): Promise<any> {
+        const contract = this.getContract();
+        // TODO - replace with bytes32ToString or stringToBytes32
+        const parsedName = ethers.utils.formatBytes32String(name);
+
+        return await contract.methods.userTextRecords(parsedName).call();
+    }
 }
