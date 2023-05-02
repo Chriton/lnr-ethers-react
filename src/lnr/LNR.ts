@@ -179,17 +179,4 @@ export default class LNR {
 
         return await contract.unsetTextRecord(parsedName, key);
     }
-
-    /**
-     * Gets all text records for a name
-     *
-     * @param name The name to get the text records of
-     */
-    public async getAllTextRecords(name: string): Promise<any> {
-        const contract = this.getContract();
-        // TODO - replace with bytes32ToString or stringToBytes32
-        const parsedName = ethers.utils.formatBytes32String(name);
-
-        return await contract.methods.userTextRecords(parsedName).call();
-    }
 }

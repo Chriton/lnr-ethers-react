@@ -15,7 +15,10 @@ import { LnrContext } from "../provider/LnrConfigProvider";
  * @param key The key of the text record to resolve
  * @returns The text record
  */
-export function useLnrGetTextRecord(name: string, key: string): {
+export function useLnrGetTextRecord(
+    name: string,
+    key: string
+): {
     textRecord: string | null;
     error: string | null;
     hasError: boolean;
